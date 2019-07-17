@@ -1,7 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { List, Checkbox, Icon } from 'antd';
-import 'antd/dist/antd.css';
 import { toggleTodoAction, removeTodoAction } from '../reducers/reducer';
 
 export default () => {

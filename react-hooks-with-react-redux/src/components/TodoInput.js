@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import uuid from 'uuid/v4';
 import { Input, Button } from 'antd';
-import 'antd/dist/antd.css';
 import { addTodoAction } from '../reducers/reducer';
 
 export default () => {
