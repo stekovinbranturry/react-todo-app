@@ -29,4 +29,8 @@ body {
   width: 500px;
 }
 
+.delete-icon {
+  position: absolute;
+  right: 10px;
+}
 /*# sourceMappingURL=index.css.map */
