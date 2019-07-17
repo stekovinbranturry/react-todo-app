@@ -1,0 +1,36 @@
+$container-width: 500px;
+$input-width: 400px;
+$input-height: 50px;
+
+html,
+body {
+  margin: 0;
+  padding: 20px;
+}
+
+#input_area {
+  margin-bottom: 10px;
+  > input {
+    width: $input-width;
+    height: $input-height;
+    border: {
+      top-right-radius: 0;
+      bottom-right-radius: 0;
+      right: none;
+    }
+  }
+  > button {
+    width: $container-width - $input-width;
+    height: $input-height;
+    top: -1px;
+    border: {
+      top-left-radius: 0;
+      bottom-left-radius: 0;
+      left: none;
+    }
+  }
+}
+
+#show_area {
+  width: $container-width;
+}
