@@ -1,14 +1,11 @@
-import React, { useReducer } from 'react';
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { List, Checkbox, Icon } from 'antd';
-import {
-  toggleTodoAction,
-  removeTodoAction,
-  initState,
-  reducer
-} from '../reducers/reducer';
+import { toggleTodoAction, removeTodoAction } from '../reducers/reducer';
 
 export default () => {
-  const [state, dispatch] = useReducer(reducer, initState);
+  const dispatch = useDispatch();
+  const state = useSelector(state => state);
   const { todos } = state;
   const handleClickOnCheckbox = id => {
     dispatch(toggleTodoAction(id));
