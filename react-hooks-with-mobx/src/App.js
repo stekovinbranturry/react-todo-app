@@ -1,16 +1,14 @@
 import React, { Fragment } from 'react';
-import TodoInput from './components/TodoInput.jsx';
-import TodoList from './components/TodoList.jsx';
-import TodoCount from './components/TodoCount.jsx';
+import SetStateTest from './components/state-test/SetStateTest';
+import MobxStateTest from './components/state-test/MobxStateTest';
 
 function App() {
-	return (
-		<Fragment>
-			<TodoInput />
-			<TodoList />
-			<TodoCount />
-		</Fragment>
-	);
+  return (
+    <Fragment>
+      <SetStateTest />
+      <MobxStateTest />
+    </Fragment>
+  );
 }
 
 export default App;
