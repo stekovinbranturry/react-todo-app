@@ -1,5 +1,5 @@
+import { Map } from 'immutable';
 import { createStore } from 'redux';
-import uuid from 'uuid/v4';
 
 const [ADD_TODO, TOGGLE_TODO, REMOVE_TODO] = [
   'ADD_TODO',
@@ -12,50 +12,40 @@ export const addTodoAction = todo => ({
   payload: todo
 });
 
-export const toggleTodoAction = id => ({
+export const toggleTodoAction = index => ({
   type: TOGGLE_TODO,
-  payload: id
+  payload: index
 });
 
-export const removeTodoAction = id => ({
+export const removeTodoAction = index => ({
   type: REMOVE_TODO,
-  payload: id
+  payload: index
 });
 
-export const initState = {
+export const initState = Map({
   todos: [
     {
-      id: uuid(),
       todo: 'Play basketball',
       isComplete: false
     },
     {
-      id: uuid(),
       todo: 'Go shooping',
       isComplete: true
     }
   ]
-};
+});
 
 export const reducer = (state = initState, { type, payload }) => {
   switch (type) {
     case ADD_TODO:
-      return {
-        ...state,
-        todos: [...state.todos, payload]
-      };
-    case TOGGLE_TODO:
-      return {
-        ...state,
-        todos: state.todos.map(todo =>
-          todo.id === payload ? { ...todo, isComplete: !todo.isComplete } : todo
-        )
-      };
+      return state.update('todos', todos => [...todos, payload]);
+    
+    case TOGGLE_TODO: {
+      return state.updateIn(['todos', payload, 'isComplete'], isComplete => !isComplete);
+    }
     case REMOVE_TODO:
-      return {
-        ...state,
-        todos: state.todos.filter(todo => todo.id !== payload)
-      };
+      return state.deleteIn(['todos', payload]);
+
     default:
       return state;
   }

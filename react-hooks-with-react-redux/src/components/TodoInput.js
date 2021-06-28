@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import uuid from 'uuid/v4';
 import { Input, Button } from 'antd';
 import { addTodoAction } from '../reducers/reducer';
 
@@ -12,7 +11,6 @@ export default () => {
 		if (!todo) return;
 		dispatch(
 			addTodoAction({
-				id: uuid(),
 				todo,
 				isComplete: false
 			})
